@@ -59,7 +59,8 @@ if __name__ == '__main__':
 
     new_config = [(i, new_config[i]) for i in new_config.keys() if not i in old_config]
 
+    check_nvchecker(new_config)
+
     for package, _ in new_config:
         check_aur_maintainer(package)
 
-    check_nvchecker(new_config)
