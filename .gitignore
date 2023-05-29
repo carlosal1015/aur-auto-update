@@ -1,6 +1,7 @@
 *.log
 *.json
 *.sw*
-*/
-check.toml
-!update-scripts/
+cache/
+nvchecker.toml
+*.key
+*.txt

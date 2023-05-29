@@ -1,0 +1,6 @@
+nvchecker:
+  github: bmcfee/resampy
+  source: github
+  use_latest_release: true
+test: true
+oldver: 0.4.2

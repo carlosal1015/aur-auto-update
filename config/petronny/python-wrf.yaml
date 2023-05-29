@@ -1,0 +1,7 @@
+nvchecker:
+  github: NCAR/wrf-python
+  source: github
+  use_latest_release: true
+  prefix: v
+test: true
+oldver: 1.3.4.1

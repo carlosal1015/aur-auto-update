@@ -1,0 +1,6 @@
+nvchecker:
+  exclude_regex: .*beta
+  pagure: background-logo-extension
+  source: pagure
+  use_latest_release: true
+test: true

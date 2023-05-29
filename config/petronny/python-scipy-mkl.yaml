@@ -1,0 +1,7 @@
+nvchecker:
+  github: scipy/scipy
+  source: github
+  use_latest_release: true
+  prefix: v
+test: true
+oldver: 1.10.1
