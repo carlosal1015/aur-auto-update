@@ -1,0 +1,4 @@
+nvchecker:
+  regex: archlinuxarm-keyring-([\d.]+).tar.gz
+  source: "regex"
+  url: https://archlinuxarm.org/builder/src/
