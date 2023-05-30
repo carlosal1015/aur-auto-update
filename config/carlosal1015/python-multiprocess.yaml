@@ -2,3 +2,6 @@ nvchecker:
   github: uqfoundation/multiprocess
   source: github
   use_latest_release: true
+  prefix: multiprocess-
+test: true
+oldver: 0.70.14
