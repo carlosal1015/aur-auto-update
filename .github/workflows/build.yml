@@ -26,9 +26,9 @@ jobs:
       - name: Install runtime dependencies
         run: pacman -S --noconfirm --needed base-devel devtools dbus git pacman-contrib
 
-      - uses: arch4edu/cactus/actions/config-makepkg@main
-
       - uses: actions/checkout@master
+
+      - uses: arch4edu/cactus/actions/config-makepkg@main
 
       - name: Add path
         run: echo "$(realpath bin)" >> $GITHUB_PATH
@@ -49,6 +49,7 @@ jobs:
           aur-clone ${{ github.event.inputs.pkgbase }}
           cd ${{ github.event.inputs.pkgbase }}
           update-pkgver ${{ github.event.inputs.pkgver }} || exit 0
+          su makepkg -c recv-gpg-keys || :
           if [ -f /usr/bin/custom-x86_64-build ]
           then
             su makepkg -c custom-x86_64-build || :
