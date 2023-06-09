@@ -1,0 +1,5 @@
+#!/bin/sh
+
+run_time_dependencies=(hypre mumps parmetis pastix scotch superlu_dist triangle)
+
+su makepkg -c 'pacman -Syuq --needed --noconfirm && pacman -S ${run_time_dependencies[@]}'
