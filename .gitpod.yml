@@ -1,0 +1,17 @@
+image:
+  file: .gitpod.Dockerfile
+
+tasks:
+  - name: Example of passing an environment variable to a command
+    env:
+      MIRROR_LIST: "https://raw.githubusercontent.com/arch4edu/mirrorlist/master/mirrorlist.arch4edu"
+      MIRRORS_DELAY_SCRIPT: "https://raw.githubusercontent.com/carlosal1015/aur-auto-update/gitpod/measure_mirrors.py"
+    command: |
+      sudo pacman --needed --noconfirm --noprogressbar -Sy
+      export ARCH4EDU_PACKAGES=$(pacman -Slq arch4edu | tr '\n' ' ')
+      aur-out-of-date -pkg $(echo "$ARCH4EDU_PACKAGES") | tee -a arch4edu-package-status.log
+      curl -O ${MIRROR_LIST}
+      deadlink check mirrorlist.arch4edu
+      deadlink check /etc/pacman.d/arch4edumirrorlist
+      curl -s ${MIRRORS_DELAY_SCRIPT} | python
+# https://bbs.archlinux.org/viewtopic.php?pid=701126#p701126
