@@ -46,6 +46,7 @@ ARG PACKAGES="\
   python-gobject \
   python-lxml \
   python-packaging \
+  python-requests \
   zsh \
   "
 
