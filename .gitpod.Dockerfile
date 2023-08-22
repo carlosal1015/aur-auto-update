@@ -67,5 +67,4 @@ RUN sudo pacman-key --init && \
   printf 'Y\n' | bash -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" --unattended
 
 ENV MANPAGER="less -R --use-color -Dd+r -Du+b"
-
-CMD ["/bin/zsh"]
+ENV SHELL=/usr/bin/zsh
