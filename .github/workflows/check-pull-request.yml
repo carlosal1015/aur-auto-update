@@ -15,7 +15,7 @@ jobs:
       - name: Install runtime dependencies
         run: pacman -S --noconfirm --needed git nvchecker python-requests python-toml
 
-      - uses: actions/checkout@master
+      - uses: actions/checkout@main
         with:
           fetch-depth: 0
 

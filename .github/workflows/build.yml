@@ -15,7 +15,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     container:
-      image: archlinux
+      image: archlinux:base-devel
       options: --privileged
       volumes:
         - /:/ubuntu
@@ -28,9 +28,9 @@ jobs:
       - uses: arch4edu/cactus/actions/upgrade-archlinux@main
 
       - name: Install runtime dependencies
-        run: pacman -S --noconfirm --needed base-devel devtools dbus git pacman-contrib
+        run: pacman -S --noconfirm --needed devtools dbus git pacman-contrib
 
-      - uses: actions/checkout@master
+      - uses: actions/checkout@main
 
       - uses: arch4edu/cactus/actions/config-makepkg@main
 
@@ -80,7 +80,7 @@ jobs:
       - name: Install runtime dependencies
         run: pacman -S --noconfirm --needed base-devel git openssh pacman-contrib
 
-      - uses: actions/checkout@master
+      - uses: actions/checkout@main
         with:
           token: ${{ secrets._GITHUB_TOKEN }}
 
