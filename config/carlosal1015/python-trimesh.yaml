@@ -1,7 +1,6 @@
 nvchecker:
-  github: IntelPython/mkl_random
+  github: mikedh/trimesh
   source: github
   use_latest_release: true
-  prefix: v
 test: true
-oldver: 1.2.4
+oldver: 3.23.5
