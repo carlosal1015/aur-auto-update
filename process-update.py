@@ -21,6 +21,9 @@ with open("nvchecker.log") as f:
 nvtake = []
 for line in lines:
     line = json.loads(line.strip("\n"))
+    if not 'name' in line:
+        print(f"Failed to process update for {line}.")
+        continue
     package = line["name"]
     if line["event"] == "updated":
         version = line["version"]
@@ -34,7 +37,8 @@ for line in lines:
                 print(f"{package} doesn't exist on AUR.")
                 continue
             if test:
-                github.get_repo('arch4edu/aur-auto-update').get_workflow("build.yml").create_dispatch('main', {'pkgbase': package, 'pkgver': version})
+                clean = 'false' if not "clean-up-ubuntu" in config else config["clean-up-ubuntu"]
+                github.get_repo('arch4edu/aur-auto-update').get_workflow("build.yml").create_dispatch('main', {'pkgbase': package, 'pkgver': version, 'clean-up-ubuntu': clean})
                 print(f"Triggered build test for {package} {version}.")
             elif flag:
                 print(f"TODO: Flag {package} on AUR.")

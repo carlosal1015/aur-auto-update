@@ -1,6 +1,7 @@
 nvchecker:
-  github: lakoliu/furtherance
+  github: google/etils
   source: github
   use_latest_release: true
   prefix: v
 test: true
+oldver: 1.9.2
