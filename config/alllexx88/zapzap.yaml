@@ -1,7 +1,7 @@
 nvchecker:
-  github: tkashkin/adwaita-for-steam
+  github: rafatosta/zapzap
   source: github
   use_latest_release: true
   prefix: v
 test: true
-oldver: 1.7
+oldver: 5.3.5
